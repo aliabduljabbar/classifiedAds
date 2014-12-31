@@ -51,8 +51,10 @@
                 <br>
                 <textarea id="ad_description" name="ad_description" rows="30" cols="60"></textarea>
                 <br>
-                <label for="ad_image">Image</label>
-                <input id="ad_image" name="ad_image" type="file" accept="image/jpeg">
+                <div id="ad_image_upload">
+                </div>
+                <br>
+                <button type="button" onclick="addUploader()">Upload image(s).</button>
                 <br>
                 <label for="ad_location">Location</label>
                 <input id="ad_location" name="ad_location" type="text">
@@ -67,6 +69,25 @@
     <footer>
         <h5>This is footer, design will be focused later on.</h5>
     </footer>
+
+    <script>
+        var x = 1;
+        function addUploader(){
+
+            var ad_image_upload = document.getElementById("ad_image_upload");
+
+            var imgnode = document.createElement("input");
+            imgnode.setAttribute("id", "ad_image"+x);
+            imgnode.setAttribute("name", "ad_image"+x);
+            imgnode.setAttribute("type", "file");
+            imgnode.setAttribute("accept", "image/jpeg")
+
+            var brnode = document.createElement("br");
+
+            ad_image_upload.appendChild(imgnode);
+            ad_image_upload.appendChild(brnode);
+        }
+    </script>
 
 </body>
 </html>
