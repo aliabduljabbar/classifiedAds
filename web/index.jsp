@@ -8,6 +8,6 @@
     <jsp:scriptlet>
       out.println("Hello, World!");
     </jsp:scriptlet>
-    <a href="ad/newpost.jsp"> Go to new post, (test purpose only) </a>
+    <a href="ad/newad.jsp"> Go to new post, (test purpose only) </a>
   </body>
 </html>
