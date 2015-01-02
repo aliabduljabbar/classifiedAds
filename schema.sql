@@ -1,0 +1,56 @@
+CREATE TABLE ad (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  usr_id INTEGER UNSIGNED NOT NULL,
+  title VARCHAR NOT NULL,
+  category VARCHAR NOT NULL,
+  description VARCHAR NOT NULL,
+  location VARCHAR NOT NULL,
+  PRIMARY KEY(id),
+  INDEX ad_FKIndex1(usr_id)
+);
+
+CREATE TABLE hashtag (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  ad_id INTEGER UNSIGNED NOT NULL,
+  name VARCHAR NOT NULL,
+  PRIMARY KEY(id),
+  INDEX hashtag_FKIndex1(ad_id)
+);
+
+CREATE TABLE img (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  ad_id INTEGER UNSIGNED NOT NULL,
+  name VARCHAR NOT NULL,
+  PRIMARY KEY(id),
+  INDEX img_FKIndex1(ad_id)
+);
+
+CREATE TABLE ratings (
+  usr_id INTEGER UNSIGNED NOT NULL,
+  ad_id INTEGER UNSIGNED NOT NULL,
+  value INTEGER UNSIGNED NOT NULL,
+  PRIMARY KEY(usr_id, ad_id),
+  INDEX usr_has_ad_FKIndex1(usr_id),
+  INDEX usr_has_ad_FKIndex2(ad_id)
+);
+
+CREATE TABLE reviews (
+  usr_id INTEGER UNSIGNED NOT NULL,
+  ad_id INTEGER UNSIGNED NOT NULL,
+  text VARCHAR NOT NULL,
+  PRIMARY KEY(usr_id, ad_id),
+  INDEX usr_has_ad_FKIndex1(usr_id),
+  INDEX usr_has_ad_FKIndex2(ad_id)
+);
+
+CREATE TABLE usr (
+  id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  email VARCHAR NOT NULL,
+  pwd VARCHAR NOT NULL,
+  fname VARCHAR NOT NULL,
+  lname VARCHAR NOT NULL,
+  phonenum VARCHAR NULL,
+  PRIMARY KEY(id)
+);
+
+

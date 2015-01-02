@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import ad.business.AdProcessor;
-import ad.business.HashProcessor;
+import ad.beans.AdBean;
 
 @MultipartConfig(fileSizeThreshold=1024*1024*2, maxFileSize=1024*1024*10,   maxRequestSize=1024*1024*50)
 public class NewAd extends HttpServlet{
@@ -67,10 +67,17 @@ public class NewAd extends HttpServlet{
         String ad_title = request.getParameter("ad_title");
         String ad_category = request.getParameter("ad_category");
         String ad_description = request.getParameter("ad_description");
-        ArrayList<String> filesList = uploadImages(request, ad_title);
+        ArrayList<String> ad_images = uploadImages(request, ad_title);
         String ad_location = request.getParameter("ad_location");
 
-        boolean result = ap.insertAd(ad_title, ad_category, ad_description, filesList, ad_location);
+        AdBean ad = new AdBean();
+        ad.setTitle(ad_title);
+        ad.setCategory(ad_category);
+        ad.setDescription(ad_description);
+        ad.setImages(ad_images);
+        ad.setLocation(ad_location);
+
+        boolean result = ap.insertAd(ad);
         if(result){
             rd = request.getRequestDispatcher("success.jsp");
         }else{

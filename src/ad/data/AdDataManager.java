@@ -1,11 +1,9 @@
 package ad.data;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-/**
- * Created by ZSJ on 12/31/2014.
- */
+import ad.beans.AdBean;
+
 public class AdDataManager {
 
 
@@ -22,13 +20,7 @@ public class AdDataManager {
      * @author: Zulfiqar Junejo
      * Code that will handle insert operation.
      */
-    public boolean insertAd(
-            String ad_title,
-            String ad_category,
-            String ad_description,
-            ArrayList<String> filesList,
-            String ad_location,
-            ArrayList<String> hashtags){
+    public boolean insertAd(AdBean ad){
         return true;
     }
 

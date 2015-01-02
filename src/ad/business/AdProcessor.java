@@ -3,6 +3,7 @@ package ad.business;
 import java.util.ArrayList;
 
 import ad.data.AdDataManager;
+import ad.beans.AdBean;
 
 
 public class AdProcessor {
@@ -13,17 +14,19 @@ public class AdProcessor {
     public AdProcessor(){
     }
 
-    public boolean insertAd(String ad_title, String ad_category, String ad_description, ArrayList<String> filesList, String ad_location){
+    public boolean insertAd(AdBean ad){
 
         /*
          * All of the business logic for processing an ad will go here.
          */
-        if(ad_title.equals("") || ad_category.equals("") || ad_description.equals("") || filesList.isEmpty() || ad_location.equals(""))
+        if(ad.getTitle().equals("") || ad.getCategory().equals("")){
             return false;
-        else{
-            ArrayList<String> hashtags = hp.process(ad_description);
-            adm.insertAd(ad_title, ad_category, ad_description, filesList, ad_location, hashtags);
+        } else {
+            ArrayList<String> tags = hp.process(ad.getDescription());
+            ad.setTags(tags);
+
+            boolean result = adm.insertAd(ad);
+            return result;
         }
-        return true;
     }
 }
