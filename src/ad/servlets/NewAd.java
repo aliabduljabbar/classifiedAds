@@ -81,7 +81,7 @@ public class NewAd extends HttpServlet{
         if(result){
             rd = request.getRequestDispatcher("success.jsp");
         }else{
-            rd = request.getRequestDispatcher("failure.jsp");
+            rd = request.getRequestDispatcher("new.jsp");
         }
         rd.forward(request, response);
     }

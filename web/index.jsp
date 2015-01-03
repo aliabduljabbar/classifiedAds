@@ -5,9 +5,6 @@
     <title></title>
   </head>
   <body>
-    <jsp:scriptlet>
-      out.println("Hello, World!");
-    </jsp:scriptlet>
-    <a href="ad/newad.jsp"> Go to new post, (test purpose only) </a>
+    <a href="newad.jsp"> Go to new post, (test purpose only) </a>
   </body>
 </html>

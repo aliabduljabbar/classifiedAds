@@ -5,17 +5,14 @@
          http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 
-    <display-name>classified</display-name>
-
     <servlet>
         <display-name>NewAd</display-name>
         <servlet-name>NewAd</servlet-name>
         <servlet-class>ad.servlets.NewAd</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>NewAd</servlet-name>
-        <url-pattern>/ad/NewAd</url-pattern>
+        <url-pattern>/NewAd</url-pattern>
     </servlet-mapping>
 
 </web-app>
